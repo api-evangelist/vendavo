@@ -1,8 +1,26 @@
 aid: vendavo
 name: Vendavo
-description: 'Vendavo is a company surfaced as a portfolio company of dcm-ventures, sapphire-ventures
-  and added to the API Evangelist network as a stub for enrichment. Sector: enterprise. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: 'Vendavo is an enterprise B2B commercial-excellence software company whose
+  platform helps manufacturers and distributors optimize pricing, automate quoting and
+  agreements, and manage rebate and incentive programs using AI-powered pricing intelligence
+  and margin analytics. Vendavo has been named a Leader in the Gartner Magic Quadrant
+  for B2B Pricing & Rebate Optimization Software and integrates with enterprise ERP,
+  CRM, and eCommerce systems. As of this enrichment pass Vendavo publishes no public
+  developer API, developer portal, or OpenAPI definition; its integration surface is
+  delivered through partner and customer engagements. This profile was seeded as a
+  portfolio lead of DCM Ventures and Sapphire Ventures.'
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://www.vendavo.com/wp-content/uploads/2026/04/Image-2-1024x431.png
 url: https://raw.githubusercontent.com/api-evangelist/vendavo/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -13,10 +31,18 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Enterprise
+- Pricing
+- CPQ
+- Quoting
+- Rebates
+- B2B
+- Commercial Optimization
+- Margin Optimization
+- AI
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -26,3 +52,20 @@ maintainers:
 common:
 - type: Website
   url: http://www.vendavo.com/
+- type: Blog
+  url: https://www.vendavo.com/insights/blog/
+- type: Support
+  url: https://www.vendavo.com/company/contact/
+- type: TermsOfService
+  url: https://www.vendavo.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.vendavo.com/privacy-policy/
+- type: LLMsTxt
+  url: llms/vendavo-llms.txt
+- type: DomainSecurity
+  url: security/vendavo-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 3
+  pass: local-v1
