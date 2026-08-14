@@ -5,10 +5,16 @@ description: 'Vendavo is an enterprise B2B commercial-excellence software compan
   agreements, and manage rebate and incentive programs using AI-powered pricing intelligence
   and margin analytics. Vendavo has been named a Leader in the Gartner Magic Quadrant
   for B2B Pricing & Rebate Optimization Software and integrates with enterprise ERP,
-  CRM, and eCommerce systems. As of this enrichment pass Vendavo publishes no public
-  developer API, developer portal, or OpenAPI definition; its integration surface is
-  delivered through partner and customer engagements. This profile was seeded as a
-  portfolio lead of DCM Ventures and Sapphire Ventures.'
+  CRM, and eCommerce systems. Vendavo markets "real-time APIs for dynamic pricing and
+  quoting workflows" alongside batch and file-based integration, but as of this
+  enrichment pass it publishes no public developer portal, API reference or
+  machine-readable contract: the Vendavo Documentation Portal (one.vendavo.com) redirects
+  to an Atlassian ID login and the support portal to a Salesforce Community login, so the
+  integration surface is reachable only by contracted customers and partners. Vendavo does
+  publish a substantive public security posture — ISO/IEC 27001:2022, annual SOC 1 and
+  SOC 2 Type 2 audits, a CSA STAR CAIQ self-assessment and a Trust Center at
+  trustvault.vendavo.com. This profile was seeded as a portfolio lead of DCM Ventures and
+  Sapphire Ventures.'
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -31,7 +37,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
 tags:
 - Company
 - Enterprise
@@ -64,8 +70,41 @@ common:
   url: llms/vendavo-llms.txt
 - type: DomainSecurity
   url: security/vendavo-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/vendavo
+- type: TrustCenter
+  url: security/vendavo-trust-center.yml
+- type: Compliance
+  url: security/vendavo-trust-center.yml
+- type: Conformance
+  url: conformance/vendavo-conformance.yml
+- type: Plans
+  url: plans/vendavo-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/vendavo-rate-limits.yml
 x-enrichment:
-  date: '2026-07-21'
-  status: enriched
-  artifacts_added: 3
+  date: '2026-08-13'
+  status: minimal
+  artifacts_added: 4
   pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Vendavo's only product documentation portal, one.vendavo.com, 301s to
+    vendavoinc.atlassian.net/wiki/spaces/doc/overview which then 302s to an Atlassian ID
+    login, and the support portal 302s to a Salesforce Community login, so the API
+    reference behind Vendavo's marketed "real-time APIs" is readable only with an active
+    tenant.
+  evidence:
+  - url: https://one.vendavo.com/
+    status: 301
+  - url: https://vendavoinc.atlassian.net/wiki/spaces/doc/overview
+    status: 302
+  - url: https://support.vendavo.com/
+    status: 301
+  - url: https://www.vendavo.com/openapi.json
+    status: 404
+  - url: https://www.vendavo.com/.well-known/agent-card.json
+    status: 404
+  checked: '2026-08-13'
