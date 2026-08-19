@@ -1,0 +1,96 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://www.vendavo.com/security/ and
+  https://www.vendavo.com/platform/integrations-and-security/ — Vendavo publishes no
+  OpenAPI, AsyncAPI or GraphQL SDL, so nothing here is derived from a contract. Every
+  entry below is either a published Vendavo claim or a measured absence.
+description: >-
+  Vendavo's conformance posture is entirely organizational — audited information-security
+  and financial-reporting standards — with no published API-level conformance. Vendavo
+  markets "real-time APIs for dynamic pricing and quoting workflows" but ships no public
+  machine-readable contract, so no API standard (OAuth 2.0 metadata, OIDC discovery,
+  RFC 9457, RFC 8594, pagination or idempotency semantics) can be verified from the
+  outside.
+standards:
+- id: iso-27001
+  conforms: true
+  evidence: >-
+    ISO/IEC 27001:2022 certified; annual audit. "Our ISMS is built on top of
+    international standard ISO 27001." (www.vendavo.com/security/)
+- id: soc2-type2
+  conforms: true
+  evidence: >-
+    Annual SOC 2 Type 2 audit covering Security, Availability, Confidentiality and
+    Processing Integrity Trust Services Criteria. Report available on request via the
+    Trust Center. (www.vendavo.com/security/)
+- id: soc1-type2
+  conforms: true
+  evidence: Annual SOC 1 Type 2 audit over controls relevant to financial reporting.
+- id: csa-star
+  conforms: true
+  evidence: >-
+    CSA STAR Level 1 — completed CAIQ self-assessment published to the CSA STAR Registry
+    (cloudsecurityalliance.org/star/registry/vendavo/, HTTP 200).
+- id: iso-22301
+  conforms: partial
+  evidence: >-
+    Alignment claim only, not a certification — "our business continuity program is
+    aligned with the international standard ISO 22301."
+- id: gdpr
+  conforms: true
+  evidence: >-
+    "Vendavo enables your compliance with leading global privacy regulations, including
+    EU & UK GDPR, and California CPRA." Privacy notice at
+    www.vendavo.com/privacy-policy/; CCPA notice at www.vendavo.com/ccpa/.
+- id: ccpa-cpra
+  conforms: true
+  evidence: California CPRA named on the security page; dedicated CCPA notice published.
+- id: saml-sso
+  conforms: true
+  evidence: >-
+    "User access supports SSO integration with customer identity management systems."
+    (www.vendavo.com/security/). Protocol not named publicly.
+- id: oauth2
+  conforms: unknown
+  evidence: >-
+    No public documentation of an authorization server. /.well-known/oauth-authorization-server
+    404/301s on every Vendavo host. Third-party iPaaS listings that mention OAuth 2.0
+    describe the iPaaS's own capabilities, not Vendavo's API — not counted as evidence.
+- id: oidc
+  conforms: false
+  evidence: >-
+    No /.well-known/openid-configuration on any reachable Vendavo host (404 on
+    www.vendavo.com and trustvault.vendavo.com; 301 to login on one.vendavo.com and
+    support.vendavo.com).
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document found. /openapi.json, /openapi.yaml, /swagger.json,
+    /v1/openapi.json, /api-docs, /docs and /redoc were probed on www.vendavo.com,
+    trustvault.vendavo.com, one.vendavo.com and support.vendavo.com — all 404 or 301 to
+    a login. api.vendavo.com, developer.vendavo.com, docs.vendavo.com and
+    apidocs.vendavo.com have no DNS record.
+- id: asyncapi
+  conforms: false
+  evidence: >-
+    No AsyncAPI document and no public webhook or event catalog. Vendavo's own
+    integration page describes "real-time APIs, batch processing, and file-based
+    integrations" and never mentions webhooks or events.
+- id: graphql
+  conforms: false
+  evidence: No /graphql surface reachable on any resolvable Vendavo host.
+- id: rfc9457
+  conforms: unknown
+  evidence: No published error reference; error envelope cannot be observed without a tenant.
+- id: rfc8594
+  conforms: unknown
+  evidence: No published deprecation or sunset policy; no changelog and no status page.
+- id: mcp
+  conforms: false
+  evidence: No hosted MCP endpoint and no first-party MCP package in any public registry.
+- id: a2a
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json return 404 on
+    www.vendavo.com and trustvault.vendavo.com, 301-to-login elsewhere. No agent card.

@@ -1,0 +1,30 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+provider: Vendavo
+providerId: vendavo
+generated: '2026-08-13'
+method: searched
+modified: '2026-08-13'
+source: https://www.vendavo.com/page-sitemap.xml
+description: >-
+  Vendavo publishes no pricing at all. The full page sitemap (81 URLs, fetched
+  2026-08-13) contains no /pricing page, no plans page and no rate card; the commercial
+  path everywhere on the site is "Request a demo". There is no self-serve signup, no
+  free tier, no trial and no published list price for any Vendavo product (Pricing,
+  Quoting and Agreements, Rebates, AI and Intelligence, Analytics, High-Tech Revenue
+  Management). Pricing is negotiated through enterprise sales. This is a recorded zero,
+  not an unchecked field.
+plan_count: 0
+plans: []
+pricing_model: enterprise-contact-sales
+self_serve: false
+free_tier: false
+trial: false
+sales_contact: https://www.vendavo.com/request-a-demo/
+evidence:
+- {url: 'https://www.vendavo.com/page-sitemap.xml', status: 200, note: '81 page URLs; no /pricing, /plans or rate-card page'}
+- {url: 'https://www.vendavo.com/request-a-demo/', status: 200, note: 'the only commercial entry point'}
+- {url: 'https://www.vendavo.com/platform/', status: 200, note: 'platform overview carries no price'}
+notes: >-
+  NO `Pricing` POINTER EMITTED — Vendavo has no pricing page to point at. The `Plans`
+  pointer wires this artifact so the recorded zero is readable as data.

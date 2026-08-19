@@ -1,16 +1,72 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: searched
-source: live probes of https://www.vendavo.com/.well-known/*
-host: https://www.vendavo.com
-documents:
-- path: /.well-known/security.txt
-  status: 404
-- path: /.well-known/openid-configuration
-  status: 404
-- path: /.well-known/oauth-authorization-server
-  status: 404
-- path: /.well-known/api-catalog
-  status: 404
-- path: /.well-known/ai-plugin.json
-  status: 404
-notes: No .well-known discovery documents are published on the Vendavo corporate host. Vendavo publishes no public developer API surface as of this pass.
+source: live probes of /.well-known/* across every Vendavo host reachable from the public internet
+description: >-
+  Round-two probe. Round one checked only www.vendavo.com; this pass enumerated Vendavo
+  hosts from certificate transparency (crt.sh) and probed every publicly reachable one.
+  No .well-known discovery document is served anywhere on the Vendavo estate. The two
+  hosts that could plausibly carry one — the documentation portal (one.vendavo.com) and
+  the support portal (support.vendavo.com) — 301 every path to an identity provider
+  login, so nothing anonymous is served there either.
+hosts:
+- host: https://www.vendavo.com
+  note: Corporate WordPress site. 404s every .well-known path; does serve /llms.txt (200).
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 301}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://trustvault.vendavo.com
+  note: Vendavo Trust Center (Scrut.io tenant). 404s every .well-known path.
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://one.vendavo.com
+  note: >-
+    Vendavo Documentation Portal. Every path 301s to
+    https://vendavoinc.atlassian.net/wiki/spaces/doc/overview, which then 302s to an
+    Atlassian ID login. No anonymous document is served.
+  documents:
+  - {path: /.well-known/security.txt, status: 301}
+  - {path: /.well-known/openid-configuration, status: 301}
+  - {path: /.well-known/oauth-authorization-server, status: 301}
+  - {path: /.well-known/api-catalog, status: 301}
+  - {path: /.well-known/ai-plugin.json, status: 301}
+  - {path: /.well-known/agent-card.json, status: 301}
+  - {path: /.well-known/agent.json, status: 301}
+- host: https://support.vendavo.com
+  note: >-
+    Salesforce Experience Cloud community (vendavo.my.site.com). Every path 301s to the
+    community, which redirects to /login.
+  documents:
+  - {path: /.well-known/security.txt, status: 301}
+  - {path: /.well-known/openid-configuration, status: 301}
+  - {path: /.well-known/oauth-authorization-server, status: 301}
+  - {path: /.well-known/api-catalog, status: 301}
+  - {path: /.well-known/ai-plugin.json, status: 301}
+  - {path: /.well-known/agent-card.json, status: 301}
+  - {path: /.well-known/agent.json, status: 301}
+unreachable_hosts:
+- {host: api.vendavo.com, note: no DNS record}
+- {host: developer.vendavo.com, note: no DNS record}
+- {host: docs.vendavo.com, note: no DNS record}
+- {host: developers.vendavo.com, note: no DNS record}
+- {host: apidocs.vendavo.com, note: no DNS record}
+- {host: portal.vendavo.com, note: no DNS record}
+- {host: status.vendavo.com, note: no DNS record}
+- {host: connect.vendavo.com, note: 'in certificate transparency, no DNS record today'}
+- {host: cloud.vendavo.com, note: 'resolves (173.252.151.133) but does not answer on 80/443 from the public internet — customer tenant, network-restricted'}
+- {host: app.vendavo.com, note: 'resolves (52.21.145.161) but does not answer on 80/443 from the public internet — customer tenant, network-restricted'}
+result: none
+notes: >-
+  NO POINTER EMITTED. Every probed path returned 404 or a redirect to a login; not one
+  host serves a real .well-known document, so no `WellKnown` / `SecurityTxt` pointer is
+  wired into apis.yml. This file records a measured absence, not a presence.

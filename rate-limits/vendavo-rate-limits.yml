@@ -1,0 +1,30 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Vendavo
+providerId: vendavo
+generated: '2026-08-13'
+method: searched
+modified: '2026-08-13'
+source: https://www.vendavo.com/platform/integrations-and-security/
+description: >-
+  Vendavo publishes no rate limits. The company markets "real-time APIs for dynamic
+  pricing and quoting workflows" on its integrations page but there is no public API
+  reference to carry limits, no documented throttling policy, no published quota and no
+  documented response headers. Vendavo's only product documentation portal
+  (one.vendavo.com) redirects to an Atlassian ID login, so any limits that exist are
+  visible to contracted customers only. Nothing was observed on a live response because
+  no anonymous Vendavo API endpoint is reachable. Recorded zero, not an unchecked field.
+limit_count: 0
+limits: []
+headers: {}
+responseCodes: {}
+observed: false
+documented: false
+evidence:
+- {url: 'https://www.vendavo.com/platform/integrations-and-security/', status: 200, note: 'names "real-time APIs" but documents no limits'}
+- {url: 'https://one.vendavo.com/', status: 301, note: 'documentation portal 301s to vendavoinc.atlassian.net, which 302s to an Atlassian ID login'}
+- {url: 'https://www.vendavo.com/page-sitemap.xml', status: 200, note: 'no developer, API-reference or rate-limit page in the sitemap'}
+notes: >-
+  If Vendavo publishes an API reference, the highest-value single addition for agent
+  consumers would be documented per-tenant limits plus RateLimit-* / Retry-After
+  response headers — an agent needs the runtime signal, not a number in a PDF.
