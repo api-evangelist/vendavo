@@ -15,6 +15,17 @@ description: 'Vendavo is an enterprise B2B commercial-excellence software compan
   SOC 2 Type 2 audits, a CSA STAR CAIQ self-assessment and a Trust Center at
   trustvault.vendavo.com. This profile was seeded as a portfolio lead of DCM Ventures and
   Sapphire Ventures.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
