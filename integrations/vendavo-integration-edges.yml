@@ -1,3 +1,21 @@
+generated: '2026-10-20'
+method: searched
+source:
+- https://cloudsecurityalliance.org/star/registry
+- https://eucoc.cloud/en/public-register/list-of-adherent-services
+- https://zapier.com/apps/vendavo/integrations
+- https://n8n.io/integrations/vendavo/
+- https://composio.dev/toolkits/vendavo
+- https://monid.ai/tools/vendavo
+checked:
+- https://cloudsecurityalliance.org/star/registry
+- https://eucoc.cloud/en/public-register/list-of-adherent-services
+- https://composio.dev/toolkits/vendavo
+- https://monid.ai/tools/vendavo
+- https://n8n.io/integrations/vendavo/
+- https://zapier.com/apps/vendavo/integrations
+summary: null
+marketplace_apps: []
 edges:
 - partner_name: Cloud Security Alliance STAR Registry
   partner: null
@@ -29,11 +47,4 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
-generated: '2026-10-20'
-method: searched
-source:
-- https://cloudsecurityalliance.org/star/registry
-- https://eucoc.cloud/en/public-register/list-of-adherent-services
-checked:
-- https://cloudsecurityalliance.org/star/registry
-- https://eucoc.cloud/en/public-register/list-of-adherent-services
+templates: []
